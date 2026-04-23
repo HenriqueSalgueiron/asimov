@@ -1,0 +1,65 @@
+/* ============ CASE STUDIES ============ */
+.case-studies {
+  padding: 70px 0;
+}
+
+.case-studies__card {
+  background: var(--color-dark);
+  border-radius: var(--radius-card);
+  padding: 70px 60px;
+  display: flex;
+  flex-direction: row;
+  gap: 64px;
+  align-items: stretch;
+}
+
+.case-study {
+  flex: 1 1 0;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 186px;
+}
+.case-study + .case-study {
+  padding-left: 64px;
+}
+.case-study + .case-study::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-white);
+}
+
+.case-study__text {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--color-white);
+}
+
+.case-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--color-green);
+  align-self: flex-start;
+  transition: gap 0.2s ease;
+}
+.case-link:hover,
+.case-link:focus-visible {
+  gap: 22px;
+  outline: none;
+}
+.case-link img {
+  width: 18px;
+  height: 18px;
+}

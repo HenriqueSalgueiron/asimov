@@ -1,0 +1,55 @@
+/* ============ CTA: Let's make things happen ============ */
+.cta {
+  padding: 70px 0;
+}
+
+.cta__card {
+  position: relative;
+  background: var(--color-grey);
+  border-radius: var(--radius-card);
+  padding: 60px;
+  display: grid;
+  grid-template-columns: minmax(0, 500px) minmax(0, 1fr);
+  gap: 60px;
+  align-items: center;
+  min-height: 347px;
+}
+
+.cta__text {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.cta__title {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.cta__desc {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--color-text);
+  max-width: 500px;
+}
+
+.cta__text .btn {
+  align-self: flex-start;
+}
+
+.cta__illustration {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 500px;
+  max-width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}

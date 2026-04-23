@@ -1,0 +1,228 @@
+/* ============ DESIGN TOKENS ============ */
+:root {
+  --color-dark: #191a23;
+  --color-green: #b9ff66;
+  --color-grey: #f3f3f3;
+  --color-white: #ffffff;
+  --color-text: #000000;
+  --anchor-offset: 152px;
+
+  --font-sans:
+    "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+
+  --radius-card: 45px;
+  --radius-btn: 14px;
+  --radius-tag: 7px;
+
+  --shadow-card: 0 5px 0 0 var(--color-dark);
+
+  --container-max: 1240px;
+  --container-pad-desktop: 100px;
+  --container-pad-tablet: 60px;
+  --container-pad-mobile: 20px;
+}
+
+/* ============ RESET ============ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--anchor-offset);
+}
+
+[id] {
+  scroll-margin-top: var(--anchor-offset);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============ LAYOUT ============ */
+.container {
+  width: 100%;
+  max-width: calc(var(--container-max) + var(--container-pad-desktop) * 2);
+  margin: 0 auto;
+  padding: 0 var(--container-pad-desktop);
+}
+
+/* Skip link for a11y */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--color-dark);
+  color: var(--color-white);
+  padding: 8px 16px;
+  z-index: 1000;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 35px;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 400;
+  text-align: center;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+  border: 1px solid transparent;
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.btn--primary {
+  background: var(--color-dark);
+  color: var(--color-white);
+  border-color: var(--color-dark);
+}
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background: var(--color-green);
+  color: var(--color-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 0 var(--color-dark);
+  outline: none;
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--color-dark);
+  border-color: var(--color-dark);
+}
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+  background: var(--color-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* ============ TAGS (green/white highlighted text) ============ */
+.tag {
+  display: inline-block;
+  padding: 0 7px;
+  border-radius: var(--radius-tag);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.3;
+  color: var(--color-dark);
+}
+.tag--green {
+  background: var(--color-green);
+}
+.tag--white {
+  background: var(--color-white);
+}
+
+/* ============ SECTION HEADING ============ */
+.section-heading {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.section-heading__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.section-heading__desc {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--color-text);
+  max-width: 580px;
+}
+
+/* ============ REVEAL ANIMATION ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
