@@ -1,0 +1,85 @@
+/* ============================================================
+   header.css — top navigation
+   ============================================================ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(10, 10, 11, 0.55);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s var(--ease), background .3s var(--ease);
+}
+.header.is-scrolled {
+  border-bottom-color: var(--border);
+  background: rgba(10, 10, 11, 0.75);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: 15px;
+}
+.brand__mark {
+  width: 30px; height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent-yellow), #E8B923);
+  color: #0A0A0B;
+  box-shadow: 0 4px 18px -6px rgba(255,212,59,0.6);
+}
+.brand__name {
+  color: var(--fg);
+}
+.brand__name::before {
+  content: "/ ";
+  color: var(--fg-dim);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.nav a {
+  font-size: 14px;
+  color: var(--fg-muted);
+  transition: color .2s;
+  position: relative;
+}
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: 1px;
+  background: var(--accent-yellow);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s var(--ease);
+}
+.nav a:hover {
+  color: var(--fg);
+}
+.nav a:hover::after { transform: scaleX(1); }
+
+.header__cta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
