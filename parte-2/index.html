@@ -92,16 +92,24 @@
           <span class="brand__name">Vomisa</span>
         </a>
 
-        <nav class="nav" aria-label="Principal">
-          <a href="#curso">Curso</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#comunidade">Comunidade</a>
-          <a href="#faq">FAQ</a>
+        <nav class="nav" id="nav-menu" aria-label="Principal">
+          <a href="#">Curso</a>
+          <a href="#">Projetos</a>
+          <a href="#">Comunidade</a>
+          <a href="#">FAQ</a>
         </nav>
 
         <div class="header__cta">
-          <a href="#login" class="link-muted">Entrar</a>
           <a href="#comecar" class="btn btn--ghost btn--sm">Começar agora</a>
+          <button
+            class="nav__toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+            aria-label="Abrir menu"
+          >
+            <span></span><span></span><span></span>
+          </button>
         </div>
       </div>
     </header>

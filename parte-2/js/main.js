@@ -5,6 +5,34 @@
   'use strict';
 
   // -----------------------------------------------------------
+  // Mobile nav toggle
+  // -----------------------------------------------------------
+  const navToggle = document.querySelector('.nav__toggle');
+  const navMenu = document.getElementById('nav-menu');
+  if (navToggle && navMenu) {
+    const setNavOpen = (open) => {
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      navMenu.classList.toggle('is-open', open);
+    };
+    navToggle.addEventListener('click', () => {
+      const open = navToggle.getAttribute('aria-expanded') !== 'true';
+      setNavOpen(open);
+    });
+    navMenu.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => setNavOpen(false));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+        setNavOpen(false);
+        navToggle.focus();
+      }
+    });
+    const mq = window.matchMedia('(min-width: 821px)');
+    mq.addEventListener('change', (e) => { if (e.matches) setNavOpen(false); });
+  }
+
+  // -----------------------------------------------------------
   // Header scroll state
   // -----------------------------------------------------------
   const header = document.querySelector('.header');
